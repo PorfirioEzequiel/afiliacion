@@ -136,6 +136,22 @@ function App() {
             {errors.curp && <p className="mt-1 text-sm text-red-300">{errors.curp}</p>}
           </div>
           
+          <div>
+            <label htmlFor="ubt" className="block text-sm font-semibold text-red-50 mb-1">
+              NOMBRE COMPLETO
+            </label>
+            <input
+              id="ubt"
+              name="ubt"
+              type="text"
+              placeholder="NOMBRE COMPLETO"
+              value={formData.ubt}
+              onChange={handleChange}
+              className="w-full rounded-md px-3.5 py-2 text-gray-900 border border-gray-300"
+              required
+            />
+          </div>
+
           {/* Campo SECCIÓN */}
           <div>
             <label htmlFor="seccion" className="block text-sm font-semibold text-red-50 mb-1">
@@ -193,20 +209,7 @@ function App() {
           </div>
           
           {/* Campo UBT (opcional) */}
-          <div>
-            <label htmlFor="ubt" className="block text-sm font-semibold text-red-50 mb-1">
-              UBT (opcional)
-            </label>
-            <input
-              id="ubt"
-              name="ubt"
-              type="text"
-              placeholder="UBT"
-              value={formData.ubt}
-              onChange={handleChange}
-              className="w-full rounded-md px-3.5 py-2 text-gray-900 border border-gray-300"
-            />
-          </div>
+          
           
           {/* Botón de envío */}
           <div className="pt-4">
