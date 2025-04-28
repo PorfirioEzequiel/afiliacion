@@ -7,7 +7,8 @@ function App() {
     seccion: "",
     ubt: "",
     pb: "",
-    telefono: ""
+    telefono: "",
+    afiliador: ""
   });
   
   const [errors, setErrors] = useState({});
@@ -71,7 +72,8 @@ function App() {
         seccion: formData.seccion,
         ubt: formData.ubt,
         pb: formData.pb,
-        telefono: formData.telefono
+        telefono: formData.telefono,
+        afiliador: formData.afiliador
       }]);
 
       if (error) {
@@ -88,7 +90,9 @@ function App() {
           seccion: "",
           ubt: "",
           pb: "",
-          telefono: ""
+          telefono: "",
+          afiliador: ""
+
         });
       }
     } catch (error) {
@@ -138,14 +142,14 @@ function App() {
           
           <div>
             <label htmlFor="ubt" className="block text-sm font-semibold text-red-50 mb-1">
-              NOMBRE COMPLETO
+              NOMBRE COMPLETO *
             </label>
             <input
               id="ubt"
               name="ubt"
               type="text"
               placeholder="NOMBRE COMPLETO"
-              value={formData.ubt}
+              value={formData.ubt.toUpperCase()}
               onChange={handleChange}
               className="w-full rounded-md px-3.5 py-2 text-gray-900 border border-gray-300"
               required
@@ -187,6 +191,23 @@ function App() {
               required
             />
             {errors.pb && <p className="mt-1 text-sm text-red-300">{errors.pb}</p>}
+          </div>
+
+          <div>
+            <label htmlFor="pb" className="block text-sm font-semibold text-red-50 mb-1">
+              AFILIADO POR*
+            </label>
+            <input
+              id="afiliador"
+              name="afiliador"
+              type="text"
+              placeholder="Nombre del afiliador@"
+              value={formData.afiliador.toUpperCase()}
+              onChange={handleChange}
+              className={`w-full rounded-md px-3.5 py-2 text-gray-900 ${errors.afiliador ? 'border-2 border-red-500' : 'border border-gray-300'}`}
+              required
+            />
+            {errors.pb && <p className="mt-1 text-sm text-red-300">{errors.afiliador}</p>}
           </div>
           
           {/* Campo TELÉFONO */}
